@@ -38,24 +38,33 @@ Here we can see, that most cases with a throughput time over 29 days were cancel
 We select only long-lasting cases (throughput time $>$29 days) which are never cancelled:
 \includegraphics[width=\textwidth]{img/QUESTION_5c_selection.png}
 
-Of these 216 cases, the average throughput time was 39 days. The following graph shows the frequency distribution of the throughput times. As one can see, the probability to have a case, which is not cancelled, falls roughly exponentially with increase in throughput time.\\
+Of these 416 cases, the average throughput time was 40 days. The following graph shows the frequency distribution of the throughput times. As one can see, the probability to have a case, which is not cancelled, falls roughly exponentially with increase in throughput time.\\
 \includegraphics[width=\textwidth]{img/QUESTION_5c_throughput_time.png}
 
 Using Celonis Process AI on our Dataset we learn that the most frequent variant (happy path) happens 7 times. This variant can be seen below.\\
 \includegraphics[width=\textwidth]{img/QUESTION_5c_happy_path.png}
 
 % second item
-Our first observation is that 49\% of the long-running cases (throughput time $>$29 days) which are never cancelled pass from W$\_$Complete$\_$Application to A$\_$Validating. We can see, that this transition by itself already takes an average of 15 days, which clearly is a big bottleneck in the whole process:\\
+Our first observation is that 37\% of the long-running cases (throughput time $>$29 days) which are never cancelled pass from W$\_$Complete$\_$Application to A$\_$Validating. We can see, that this transition by itself already takes an average of 15 days, which clearly is a big bottleneck in the whole process:\\
 \includegraphics[width=\textwidth]{img/QUESTION_5c_W_Complete.png}
 
 We also observed that the workflow of validating applications (W$\_$Validate$\_$Applicataion) takes 27 days on average, when it ends up being denied (in A$\_$Denied). Although not many cases pass through this transition, it seems like a huge waste of time, considering that the applications get refused (in O$\_$Refused), and the bank won't be profiting from these applicants:\\
 \includegraphics[width=\textwidth]{img/QUESTION_5c_W_Validate.png}
 
 % third item
+We use: \\
+	\texttt{CALC$\_$THROUGHPUT(ALL$\_$OCCURRENCE['Process Start'] TO ALL$\_$OCCURRENCE['Process End'], REMAP$\_$TIMESTAMPS("Activity$\_$Table$\_$csv"."COMPLETE TIMESTAMP", DAYS))}\\
+to calculate the throughput time and:\\
+	\texttt{COUNT(CASE WHEN "Activity$\_$Table$\_$csv"."ACTIVITY"='O$\_$Create Offer' THEN \\ "Activity$\_$Table$\_$csv"."ACTIVITY" END )}\\
+to calculate the number of offers for each case.\\
+We can plot the throughput time and the number of offers on a case basis in the following scatter plot:\\
+\includegraphics[width=\textwidth]{img/QUESTION_5c_scatter.png}
 
 
 \subsection*{(d)}
+We observed that cases over a months time in progress and still were completed were becoming less likely with increase in throughput time. We also observed for long-running cases that with increase in throughput time the number of offers per case exponentially decreased.
 
+In question 5 c) we have detected meaningful bottlenecks in the application process. A straight forward approach to reduce average throughput time is to focus on optimizing these specific parts of the whole process. We would recommend focussing especially on the bottleneck from W$\_$Complete$\_$Application to A$\_$Validating, which 37\% of cases pass through. Herein, the most potential for gain for the bank lays.
 
 
 \end{document}
