@@ -34,10 +34,14 @@ The DFG below was created by opening a new process explorer and only selecting t
 Here we can see, that most cases with a throughput time over 29 days were cancelled. Additionally, most were passed through A$\_$Cancelled first, before passing through O$\_$Cancelled to the Process End.
 
 \subsection*{(c)}
-We open a new Process Overview for our Process in Celonis just like we did in a). To exclude all cancelled applications we add a new selection of type \textit{Attribute selection}. Since per definition cancelled applications are those that contain the activity \textit{A$\_$cancelled} we exclude all the applications containing it by selecting \texttt{Activity$\_$table$\_$csv > ACTIVITY > A$\_$Cancelled} and click \textit{Invert selection}. We also create a new throughput time selection for applications with a throughput time between 30 and infinity to only see long-running cases. The resulting Process Overview can be seen below.\\
-\includegraphics[width=\textwidth]{img/QUESTION_5c_process_overview.png}
-\includegraphics[width=\textwidth]{img/QUESTION_5c_process_overview_happy_path.png}
-From it, we learn that there are 1792 long-running applications that weren't cancelled.
+We select only long-lasting cases (throughput time $>$29 days) which are never cancelled:
+\includegraphics[width=\textwidth]{img/QUESTION_5c_selection.png}
+
+Of these 216 cases, the average throughput time was 39 days. The following graph shows the frequency distribution of the throughput times. As one can see, the probability to have a case, which is not cancelled, falls roughly exponentially with increase in throughput time.\\
+\includegraphics[width=\textwidth]{img/QUESTION_5c_throughput_time.png}
+
+Using Celonis Process AI on our Dataset we learn that the most frequent variant (happy path) happens 7 times. This variant can be seen below.\\
+\includegraphics[width=\textwidth]{img/QUESTION_5c_happy_path.png}
 
 
 \subsection*{(d)}
