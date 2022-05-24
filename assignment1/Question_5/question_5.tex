@@ -14,7 +14,6 @@ The following graph shows the frequency distribution of the throughput times. As
 \includegraphics[width=\textwidth]{img/QUESTION_5a_throughput_time_distribution.png}
 
 
-
 \subsection*{(b)}
 % First item
 The BPMN model for cases running under 30 days can be seen below (zoom in to inspect in detail). We created it by starting a new Analysis and opening a new \textit{conformance} sheet. Then we clicked \textit{Mine process model} and in the next window added a new selection for Throughput time under 30. Then we clicked \textit{select all} and \textit{Launch analysis}. We then clicked \textit{View process model} where the model below was displayed and downloadable.\\
@@ -33,7 +32,9 @@ The DFG below was created by opening a new process explorer and only selecting t
 \includegraphics[width=\textwidth]{img/QUESTION_5b_over30.png}
 Here we can see, that most cases with a throughput time over 29 days were cancelled. Additionally, most were passed through A$\_$Cancelled first, before passing through O$\_$Cancelled to the Process End.
 
+
 \subsection*{(c)}
+% first item
 We select only long-lasting cases (throughput time $>$29 days) which are never cancelled:
 \includegraphics[width=\textwidth]{img/QUESTION_5c_selection.png}
 
@@ -42,6 +43,15 @@ Of these 216 cases, the average throughput time was 39 days. The following graph
 
 Using Celonis Process AI on our Dataset we learn that the most frequent variant (happy path) happens 7 times. This variant can be seen below.\\
 \includegraphics[width=\textwidth]{img/QUESTION_5c_happy_path.png}
+
+% second item
+Our first observation is that 49\% of the long-running cases (throughput time $>$29 days) which are never cancelled pass from W$\_$Complete$\_$Application to A$\_$Validating. We can see, that this transition by itself already takes an average of 15 days, which clearly is a big bottleneck in the whole process:\\
+\includegraphics[width=\textwidth]{img/QUESTION_5c_W_Complete.png}
+
+We also observed that the workflow of validating applications (W$\_$Validate$\_$Applicataion) takes 27 days on average, when it ends up being denied (in A$\_$Denied). Although not many cases pass through this transition, it seems like a huge waste of time, considering that the applications get refused (in O$\_$Refused), and the bank won't be profiting from these applicants:\\
+\includegraphics[width=\textwidth]{img/QUESTION_5c_W_Validate.png}
+
+% third item
 
 
 \subsection*{(d)}
