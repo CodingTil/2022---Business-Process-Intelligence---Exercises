@@ -16,8 +16,19 @@ The following graph shows the frequency distribution of the throughput times. As
 
 
 \subsection*{(b)}
+% First item
 The BPMN model for cases running under 30 days can be seen below (zoom in to inspect in detail). We created it by starting a new Analysis and opening a new \textit{conformance} sheet. Then we clicked \textit{Mine process model} and in the next window added a new selection for Throughput time under 30. Then we clicked \textit{select all} and \textit{Launch analysis}. We then clicked \textit{View process model} where the model below was displayed and downloadable.\\
 \includegraphics[width=\textwidth]{img/QUESTION_5b_BPMN_model.pdf}
+
+% Second item
+\includegraphics[width=\textwidth]{img/QUESTION_5b_scatter_plots.png}
+
+% Third item
+The DFG below was created by opening a new process explorer and only selecting the following activities to display: A$\_$Create $\_$Application, O$\_$Created, W$\_$Complete$\_$Application, O$\_$Accepted, O$\_$Refused, O$\_$Cancelled and A$\_$Cancelled. 100\% of activities and connections are being displayed. To see which edges are especially long lasting we selected throughput time as our edge lable.\\
+\includegraphics[width=\textwidth]{img/QUESTION_5b_DFG.png}
+This way we can see that there are two very long lasting edges (\texttt{O$\_$Created$\rightarrow$A$\_$Cancelled} and \texttt{W$\_$Complete$\_$application$\rightarrow$A$\_$Cancelled}) with a throughput time of 27 days. There is also a number of medium long lasting edges with throughput times of 13-15 days
+
+% Fourth item
 
 
 \subsection*{(c)}
