@@ -3,12 +3,12 @@
 
 \begin{document}
 \subsection*{(a)}
-Import log-flat.xes to ProM. 
+Import log-flat.xes to ProM.
 Click the eye symbol to view resource. \\
 \includegraphics[width=0.8\textwidth]{img/ProM_a_overview.png}\\
 This results in the following view:\\
 \includegraphics[width=0.8\textwidth]{img/ProM_a_overview_2.png}\\
-From it we can read 
+From it we can read
 \begin{itemize}
 \item the time period (1) covered by the event log, which is from 13.01.2010 to 03.01.2014
 \item the number of cases, events and activities of the log (2), being 4580, 21348 and 14 respectively (note that activities appear in ProM as event classes)
@@ -20,19 +20,21 @@ From (3) we get a table of occurence frequencies for each activity. From (4) we 
 To determine the number of unique trace variants we click on 'Select visualization' and select 'Explore Event Log'\\
 Under this view all trace variants are listed and some further information is given. From this we learn that there are 226 unique variants in the event log.\\
 \includegraphics[width=0.5\columnwidth]{img/ProM_a_setting.png}\includegraphics[width=0.5\columnwidth]{img/ProM_a_traces.png}\\
+\textbf{To-do: Discussion}
 
 
 \subsection*{(b)}
-From the introduction we learned that every trace has to start with 'Insert ticket' and ends with 'Closed'. Therefore every trace that does not begin/end with these events must have started/ended outside of our observed time period, making it incomplete.\\
+From the introduction we learned that every trace has to start with 'Insert ticket' or 'Assign seriousness' and ends with 'Closed'. Therefore every trace that does not begin/end with these events must have started/ended outside of our observed time period, making it incomplete.\\
 To filter out incomplete traces we go on the 'Actions' tab, select 'Filter Log using Simple Heuristics' and press 'Start'. In the first dialogue we just click 'Next'. In the next dialogue window we select 'Insert ticket' as our only start event and click 'Next'. \\
 \includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_traces_start.png}\\
 For the end events we only select 'Closed' and click 'Next'. \\
 \includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_traces_end.png}\\
-Since we do not want to filter out any other events we select 100\% of events in Event Filter and click 'Finish'.\\
-\includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_traces_events.png}\\
+Since we do not want to filter out any other events we select 100\% of events in Event Filter and click 'Finish'. We now get the following log:\\
+\includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_traces_events.png}
+\includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_log.png}\\
 
 \subsection*{(c)}
-1. As in (a) we inspect the overview of \textit{log-complete} to find 114 cases, 655 events and 7 activities. Also just like in (a) we select the visualization 'Explore Event Log' to find out there are 20 unique trace variants.\\ 
+1. As in (a) we inspect the overview of \textit{log-complete} to find 114 cases, 655 events and 7 activities. Also just like in (a) we select the visualization 'Explore Event Log' to find out there are 20 unique trace variants.\\
 \includegraphics[width=0.6\columnwidth]{img/ProM_c_overview.png}
 \includegraphics[width=0.4\columnwidth]{img/ProM_c_traces.png}\\
 2. Just like in (a) we look at 'Summary' to find a table of activities along with their frequency of occurrence:\\
@@ -42,6 +44,8 @@ Since we do not want to filter out any other events we select 100\% of events in
 5. To find out which activities appear more than once in at least one trace we again take a look at the 'Explore Event Log' visualization:\\
 \includegraphics[width=0.5\columnwidth]{img/ProM_c_traces_1.png}
 \includegraphics[width=0.5\columnwidth]{img/ProM_c_traces_2.png}\\
+\includegraphics[width=0.5\columnwidth]{img/ProM_c_traces_Cre.png}
+\includegraphics[width=0.5\columnwidth]{img/ProM_c_traces_Req.png}\\
 The tasks that appear more than once (as marked in the visualization) are
 \begin{itemize}
 \item Ass: Assign seriousness
@@ -49,6 +53,8 @@ The tasks that appear more than once (as marked in the visualization) are
 \item Res: Resolve ticket
 \item Wai: Wait
 \item Clo: Closed
+\item Cre: Create SW Anomaly
+\item Req: Require Update
 \end{itemize}
 
 
