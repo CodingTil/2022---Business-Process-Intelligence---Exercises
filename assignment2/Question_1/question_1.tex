@@ -21,6 +21,11 @@ To determine the number of unique trace variants we click on 'Select visualizati
 Under this view all trace variants are listed and some further information is given. From this we learn that there are 226 unique variants in the event log.\\
 \includegraphics[width=0.5\columnwidth]{img/ProM_a_setting.png}\includegraphics[width=0.5\columnwidth]{img/ProM_a_traces.png}\\
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+98\% of tickets taken in charge are resolved ($\frac{4983}{5060}$)
+The variants seem to be quite diverse (\~1:20 ratio of cases to variants, although distributed very unevenly)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsection*{(b)}
 From the introduction we learned that every trace has to start with 'Insert ticket' and ends with 'Closed'. Therefore every trace that does not begin/end with these events must have started/ended outside of our observed time period, making it incomplete.\\
@@ -53,5 +58,46 @@ The tasks that appear more than once (as marked in the visualization) are
 
 
 \subsection*{(d)}
+1. We choose Pie Charts for these visualization. For \textit{Ticket type} distribution we choose \texttt{TICKET TYPE} as dimension:
+\begin{lstlisting}
+"case_table_csv"."TICKET TYPE"
+\end{lstlisting} 
+and \texttt{COUNT(TICKET TYPE)} as KPI:
+\begin{lstlisting}
+COUNT("case_table_csv"."TICKET TYPE")
+\end{lstlisting} 
+
+For \textit{Membership} distribution we choose \texttt{MEMBERSHIP} as dimension:
+\begin{lstlisting}
+"case_table_csv"."MEMBERSHIP"
+\end{lstlisting} 
+and \texttt{COUNT(MEMBERSHIP)} as KPI:
+\begin{lstlisting}
+COUNT("case_table_csv"."MEMBERSHIP")
+\end{lstlisting} 
+The resulting distribution visualization can be seen below.\\
+\includegraphics[width=\columnwidth]{img/Celonis_d_ticket_type_and_membership_distribution.png}\\
+
+2. We obtained the column chart titeled 'Total workload per ressource' by using 
+\begin{verbatim}
+"event_table_csv"."RESOURCE"
+\end{verbatim}
+as dimension and 
+\begin{verbatim}
+COUNT("event_table_csv"."ACTIVITY")
+\end{verbatim}
+as KPI. The x-Axis shows the resources 1-8 in ascending order, the y-Axis shows the summed number of activities handeled by the given resource.
+
+3. We created the column chart named 'Throughput times distribution' by selecting the total throughput time in days as our dimension:
+\begin{verbatim}
+CALC_THROUGHPUT(ALL_OCCURRENCE['Process Start'] TO ALL_OCCURRENCE['Process End'], REMAP_TIMESTAMPS("event_table_csv"."TIMESTAMP", DAYS))
+\end{verbatim} 
+and selecting 
+\begin{verbatim}
+COUNT("case_table_csv"."CASE ID")
+\end{verbatim}
+as our KPI. The x-Axis shows the throughput time in days and the y-Axis shows the number of cases with a given throughput time.\\
+\includegraphics[width=0.5\columnwidth]{img/Celonis_d_workload.png}
+\includegraphics[width=0.5\columnwidth]{img/Celonis_d_throughput_times.png}\\
 
 \end{document}
