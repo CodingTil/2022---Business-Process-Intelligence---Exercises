@@ -1,0 +1,59 @@
+TICKET TYPE = Incident
+|   PRIORITY = High
+|   |   NUMBER OF ACTIVE CASES AT START > 0.500
+|   |   |   RESOURCE OF STARTING ACTIVITY = Res3
+|   |   |   |   NUMBER OF ACTIVE CASES AT START > 22: True/Wait {False/No-Wait=1, True/Wait=2}
+|   |   |   |   NUMBER OF ACTIVE CASES AT START ? 22
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 7.500: False/No-Wait {False/No-Wait=34, True/Wait=4}
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START ? 7.500
+|   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 5.500: True/Wait {False/No-Wait=0, True/Wait=3}
+|   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START ? 5.500: False/No-Wait {False/No-Wait=6, True/Wait=2}
+|   |   |   RESOURCE OF STARTING ACTIVITY = Res4: False/No-Wait {False/No-Wait=45, True/Wait=6}
+|   |   |   RESOURCE OF STARTING ACTIVITY = Res8
+|   |   |   |   NUMBER OF ACTIVE CASES AT START > 2.500
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 4
+|   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 16: False/No-Wait {False/No-Wait=23, True/Wait=1}
+|   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START ? 16
+|   |   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 13.500: True/Wait {False/No-Wait=1, True/Wait=2}
+|   |   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START ? 13.500: False/No-Wait {False/No-Wait=20, True/Wait=3}
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START ? 4: False/No-Wait {False/No-Wait=1, True/Wait=1}
+|   |   |   |   NUMBER OF ACTIVE CASES AT START ? 2.500: False/No-Wait {False/No-Wait=5, True/Wait=0}
+|   |   NUMBER OF ACTIVE CASES AT START ? 0.500: False/No-Wait {False/No-Wait=3, True/Wait=0}
+|   PRIORITY = Normal: False/No-Wait {False/No-Wait=330, True/Wait=101}
+|   PRIORITY = Urgent: False/No-Wait {False/No-Wait=24, True/Wait=1}
+TICKET TYPE = Question: False/No-Wait {False/No-Wait=1792, True/Wait=151}
+TICKET TYPE = Task
+|   NUMBER OF ACTIVE CASES AT START > 0.500: False/No-Wait {False/No-Wait=1040, True/Wait=951}
+|   NUMBER OF ACTIVE CASES AT START ? 0.500
+|   |   RESOURCE OF STARTING ACTIVITY = Res3: True/Wait {False/No-Wait=4, True/Wait=5}
+|   |   RESOURCE OF STARTING ACTIVITY = Res4: False/No-Wait {False/No-Wait=9, True/Wait=1}
+|   |   RESOURCE OF STARTING ACTIVITY = Res8: False/No-Wait {False/No-Wait=6, True/Wait=2}TICKET TYPE = Incident
+|   PRIORITY = High
+|   |   NUMBER OF ACTIVE CASES AT START > 0.500
+|   |   |   RESOURCE OF STARTING ACTIVITY = Res3
+|   |   |   |   NUMBER OF ACTIVE CASES AT START > 22: True/Wait {False/No-Wait=1, True/Wait=2}
+|   |   |   |   NUMBER OF ACTIVE CASES AT START ? 22
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 7.500: False/No-Wait {False/No-Wait=34, True/Wait=4}
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START ? 7.500
+|   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 5.500: True/Wait {False/No-Wait=0, True/Wait=3}
+|   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START ? 5.500: False/No-Wait {False/No-Wait=6, True/Wait=2}
+|   |   |   RESOURCE OF STARTING ACTIVITY = Res4: False/No-Wait {False/No-Wait=45, True/Wait=6}
+|   |   |   RESOURCE OF STARTING ACTIVITY = Res8
+|   |   |   |   NUMBER OF ACTIVE CASES AT START > 2.500
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 4
+|   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 16: False/No-Wait {False/No-Wait=23, True/Wait=1}
+|   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START ? 16
+|   |   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 13.500: True/Wait {False/No-Wait=1, True/Wait=2}
+|   |   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START ? 13.500: False/No-Wait {False/No-Wait=20, True/Wait=3}
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START ? 4: False/No-Wait {False/No-Wait=1, True/Wait=1}
+|   |   |   |   NUMBER OF ACTIVE CASES AT START ? 2.500: False/No-Wait {False/No-Wait=5, True/Wait=0}
+|   |   NUMBER OF ACTIVE CASES AT START ? 0.500: False/No-Wait {False/No-Wait=3, True/Wait=0}
+|   PRIORITY = Normal: False/No-Wait {False/No-Wait=330, True/Wait=101}
+|   PRIORITY = Urgent: False/No-Wait {False/No-Wait=24, True/Wait=1}
+TICKET TYPE = Question: False/No-Wait {False/No-Wait=1792, True/Wait=151}
+TICKET TYPE = Task
+|   NUMBER OF ACTIVE CASES AT START > 0.500: False/No-Wait {False/No-Wait=1040, True/Wait=951}
+|   NUMBER OF ACTIVE CASES AT START ? 0.500
+|   |   RESOURCE OF STARTING ACTIVITY = Res3: True/Wait {False/No-Wait=4, True/Wait=5}
+|   |   RESOURCE OF STARTING ACTIVITY = Res4: False/No-Wait {False/No-Wait=9, True/Wait=1}
+|   |   RESOURCE OF STARTING ACTIVITY = Res8: False/No-Wait {False/No-Wait=6, True/Wait=2}
