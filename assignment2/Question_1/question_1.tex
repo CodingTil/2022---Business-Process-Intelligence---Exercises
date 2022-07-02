@@ -41,9 +41,15 @@ Since we do not want to filter out any other events we select 100\% of events in
 \includegraphics[width=0.6\columnwidth]{img/ProM_c_overview.png}
 \includegraphics[width=0.4\columnwidth]{img/ProM_c_traces.png}\\
 2. Just like in (a) we look at 'Summary' to find a table of activities along with their frequency of occurrence:\\
-\includegraphics[width=0.8\columnwidth]{img/ProM_c_summary.png}
+\includegraphics[width=0.8\columnwidth]{img/ProM_c_summary.png}\\
 3.\\
-4.\\
+4. We apply the 'Add Throughput Time as Trace Attribute (In place)' plugin to \textit{log-complete} and select 'DAYS' as the resolution to be used for the elapsed time. We then select the visualization 'Dotted Chart' on the result. To retrieve minimum, maximum and average trace durations we select 'T: throughputtime' as Attribute Statistics and get the following rounded result: 
+\begin{itemize}
+\item minimum trace duration: 31 days
+\item maximum trace duration: 60 days
+\item average trace duration: 41 days
+\end{itemize}
+\includegraphics[width=\columnwidth]{img/ProM_c_trace_durations.png}\\
 5. To find out which activities appear more than once in at least one trace we again take a look at the 'Explore Event Log' visualization:\\
 \includegraphics[width=0.5\columnwidth]{img/ProM_c_traces_1.png}
 \includegraphics[width=0.5\columnwidth]{img/ProM_c_traces_2.png}\\
