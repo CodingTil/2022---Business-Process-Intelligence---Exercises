@@ -19,6 +19,10 @@ For the right Pie Chart we used \verb|"event_table_csv"."ACTIVITY"| as the Dimen
 Replace \verb|[ACTIVITY]| with each of the 14 Activities for the corresponding Dimensions. 4580 is the number of cases obtained by \verb|COUNT_TABLE("case_table_csv")|.
 
 \subsection*{(c)}
+\includegraphics[width=0.75\columnwidth]{img/RapidMiner_c_Centriods.png}
+\includegraphics[width=0.25\columnwidth]{img/RapidMiner_c_Clustering.png}\\
+We observed that Resources 3,4,8 were the only ones that executed 'Insert Ticket' and 'Resolve SW anomaly', thus forming cluster 1, which's centroid also reflects this. Resources 1,2 were the only ones to close any tickets (amongst other Activities), forming cluster 2. Resources 5,6,7 did none of these Activities, but also called Activities that Resources in cluster 1 called.
+
 
 \subsection*{(d)}
 \includegraphics[width=\columnwidth]{img/Celonis_d_OLAP.png}\\
