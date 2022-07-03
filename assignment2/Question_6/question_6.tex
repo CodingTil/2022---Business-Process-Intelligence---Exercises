@@ -41,7 +41,26 @@ We observed that Resources 3,4,8 were the only ones that executed 'Insert Ticket
 \includegraphics[width=\columnwidth]{img/RapidMiner_e_Graph.png}
 
 \subsection*{(f)}
+\includegraphics[width=\columnwidth]{img/Celonis_f_OLAP.png}\\
+We took the clusters from c) and plugged them into Celonis using PQL:
+\begin{lstlisting}
+CASE WHEN SOURCE("event_table_csv"."RESOURCE") IN ('Res5', 'Res6', 'Res7') THEN 'cluster_0'
+WHEN SOURCE("event_table_csv"."RESOURCE") IN ('Res3', 'Res4', 'Res8') THEN 'cluster_1'
+ELSE 'cluster_2'
+END
+\end{lstlisting}
+\begin{lstlisting}
+CASE WHEN SOURCE("event_table_csv"."RESOURCE") IN ('Res5', 'Res6', 'Res7') THEN 'cluster_0'
+WHEN SOURCE("event_table_csv"."RESOURCE") IN ('Res3', 'Res4', 'Res8') THEN 'cluster_1'
+ELSE 'cluster_2'
+END
+\end{lstlisting}
+\begin{lstlisting}
+COUNT(SOURCE("event_table_csv"."ACTIVITY")) / 4580
+\end{lstlisting}
+4580 is the number of cases obtained by \verb|COUNT_TABLE("case_table_csv")|.
 
 \subsection*{(g)}
+\includegraphics[width=\columnwidth]{img/RapidMiner_g_Graph.png}
 
 \end{document}
