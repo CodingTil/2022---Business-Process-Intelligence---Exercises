@@ -41,6 +41,28 @@ This results in the following Models:\\
 As we can see all these models exceed our fitness threshold of 90\% and contain all activities occuring in their respective logs (\textit{log-pre-complete} doesn't contain the activity DUPLICATE and \textit{log-post.complete} doesn't contain the activities INVALID and RESOLVED).
 
 \subsection*{(c)}
+\begin{enumerate}
+\item We visualized the three most frequent trace variant and their frequencies with the Explore Event Log utility of ProM. We got these three results:\\
+\includegraphics[width=0.5\columnwidth]{img/ProM_explore_log_complete.png}
+\includegraphics[width=0.5\columnwidth]{img/ProM_explore_log_pre.png}
+\includegraphics[width=0.5\columnwidth]{img/ProM_explore_log_post.png}\\
+The first similarity observed between the three most frequent trace variants of all three event logs is, that they all start with the Assign seriousness and Take in charge ticket activities and finish with Resolve ticket and Closed. The second observation is the equality of the three most frequent trace variants of the \textit{log-complete} and \textit{log-pre-complete} event logs. This makes sense since most of the events of \textit{log-complete} are in \textit{log-pre-complete} and not in \textit{log-post-complete}. This also explains the difference in absolute frequency of the most common trace variant between \textit{log-complete} and \textit{log-pre-complete} and the most frequent one of \textit{log-post-complete} which differ by one order of magnitude. Another important difference is that in \textit{log-complete} and \textit{log-pre-complete} the most common trace variant has a relative frequency of over $50\%$ whilst in \textit{log-post-complete} the most common trace variants are more equally diveded between the two most frequent traces with $38\%$ and $28\%$. Finally the activity Require upgrade is only present in the three most common trace variants in the \textit{log-post-complete} event log.
+\item All trace variants are replayable on both models:\\
+\begin{tabular}{c | c c c}
+    & $\sigma_{compl}$ & $\sigma_{pre}$ & $\sigma_{post}$ \\
+    \hline
+    $M_{pre}$ & $\langle$Assign seriousness, & $\langle$Assign seriousness, & $\langle$Assign seriousness, \\
+    & Take in charge ticket, & Take in charge ticket, & Take in charge ticket, \\
+    & Resolve ticket, & Resolve ticket, & Wait \\
+    & Closed$\rangle$ & Closed$\rangle$ & Resolve ticket, \\
+    & & & Closed$\rangle$ \\
+    $M_{post}$ & $\langle$Assign seriousness, & $\langle$Assign seriousness, & $\langle$Assign seriousness, \\
+    & Take in charge ticket, & Take in charge ticket, & Take in charge ticket, \\
+    & Resolve ticket, & Resolve ticket, & Wait \\
+    & Closed$\rangle$ & Closed$\rangle$ & Resolve ticket, \\
+    & & & Closed$\rangle$ \\
+\end{tabular}
+\end{enumerate}
 
 
 \subsection*{(d)}
