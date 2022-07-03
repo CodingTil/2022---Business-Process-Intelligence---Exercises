@@ -4,7 +4,8 @@
 \begin{document}
 \subsection*{(a)}
 \includegraphics[width=\columnwidth]{img/Celonis_a_Visualization.png}\\
-For the left Pie Chart we used \verb|"event_table_csv"."RESOURCE"| as the Dimension and \verb|COUNT("event_table_csv"."ACTIVITY")| as the KPI.\\
+For the left Pie Chart we used \verb|"event_table_csv"."RESOURCE"| as the Dimension and \\
+\verb|COUNT("event_table_csv"."ACTIVITY")| as the KPI.\\
 For the right Pie Chart we used \verb|"event_table_csv"."ACTIVITY"| as the Dimension and \verb|COUNT("event_table_csv"."RESOURCE")| as the KPI.
 
 
@@ -62,5 +63,7 @@ COUNT(SOURCE("event_table_csv"."ACTIVITY")) / 4580
 
 \subsection*{(g)}
 \includegraphics[width=\columnwidth]{img/RapidMiner_g_Graph.png}
+Since the ressources in cluster\_2 are responsible for closing the tickets, there are no transitions leaving it. Since the ressources in cluster\_0 and cluster\_1 perform very similar activities tickets frequently change between these clusters.\\
+Most Transitions into cluster\_2 originate in cluster\_1.
 
 \end{document}

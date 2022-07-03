@@ -15,10 +15,10 @@ For the event log post (including) 01.10.2012 we get 12 unique activities across
 \includegraphics[width=0.5\columnwidth]{img/ProM_a_post_traces.png}\\
 
 \subsection*{(b)}
-1. We apply the following workflow both for \textit{log-pre-complete} and \textit{log-post-complete}:
+\textbf{1.} We apply the following workflow both for \textit{log-pre-complete} and \textit{log-post-complete}:
 \begin{enumerate}
 \item Apply plugin 'Interactive Data-aware Heuristic Miner (iDHM)'
-\item Set 'Options \& Thresholds' to\\
+\item Set 'Options \& Thresholds' to: (info about resulting precision and fitness included)\\
 \begin{table}[h!]
 \begin{tabular}{l|llll}
            & i) (\textit{log-pre-complete}) & ii) (\textit{log-pre-complete}) & iii) (\textit{log-post-complete}) & iv) (\textit{log-post-complete})\\
@@ -26,19 +26,45 @@ For the event log post (including) 01.10.2012 we get 12 unique activities across
 Frequency  & 0.1 & 0   & 0.1  & 0   \\
 Dependency & 0.9 & 0.9 & 0.9  & 0.9 \\
 Bindings   & 0.1 & 0.1 & 0.1  & 0.1 \\
-Conditions & 0.5 & 0.5 & 0.5  & 0.5
+Conditions & 0.5 & 0.5 & 0.5  & 0.5 \\
+\hline
+Precision & 93\%   & 83,6\% & 84,6\% & 79,6\% \\
+Fitness   & 95,8\% & 99,5\% & 90,3\% & 92,5\% \\
 \end{tabular}
 \end{table}
 All tasks connected: True
 \item Select 'Petri net' as 'Output: Process Model' and click 'Export model'
 \item Use the log and the newly created Petri net as input for the 'Multi-perspective Process Miner' plugin
 \end{enumerate}
-This results in the following Models:\\
-\includegraphics[width=0.5\columnwidth]{img/ProM_b_1i.png}
-\includegraphics[width=0.5\columnwidth]{img/ProM_b_1ii.png}
-\includegraphics[width=0.5\columnwidth]{img/ProM_b_1iii.png}
-\includegraphics[width=0.5\columnwidth]{img/ProM_b_1iv.png}
-As we can see all these models exceed our fitness threshold of 90\% and contain all activities occuring in their respective logs (\textit{log-pre-complete} doesn't contain the activity DUPLICATE and \textit{log-post.complete} doesn't contain the activities INVALID and RESOLVED).
+This results in the models that can be found in the appendix (Precision and Fitness are underlined)\\
+As we can see all these models exceed our fitness threshold of 90\% and contain all activities occuring in their respective logs (\textit{log-pre-complete} doesn't contain the activity DUPLICATE and \textit{log-post.complete} doesn't contain the activities INVALID and RESOLVED).\\
+\\ \ \\
+\textbf{2.} ---\\
+\textbf{3.} We apply the following workflow both for \textit{log-pre-complete} and \textit{log-post-complete}:
+\begin{enumerate}
+\item [--------------------------]
+\item Set 'Options \& Thresholds' to\\
+\begin{table}[h!]
+\begin{tabular}{l|llll}
+           & i) (\textit{log-pre-complete}) & ii) (\textit{log-pre-complete}) & iii) (\textit{log-post-complete}) & iv) (\textit{log-post-complete})\\
+           \hline
+ &  &  &   &  \\
+ &  &  &   &  \\
+ &  &  &   &  \\
+ &  &  &   &  \\
+\hline
+Precision & 89,4\% & 70,5\% & 88,7\% & 35,1\% \\
+Fitness   & 94,5\% & 100\%  & 94,2\% & 100\%  \\
+\end{tabular}
+\end{table}
+\item [-------------------------]
+\end{enumerate}
+This results in the models that can be found in the appendix (Precision and Fitness are underlined)\\
+As we can see all these models exceed our fitness threshold of 90\% and contain all activities occuring in their respective logs (\textit{log-pre-complete} doesn't contain the activity DUPLICATE and \textit{log-post.complete} doesn't contain the activities INVALID and RESOLVED).\\
+\\ \ \\
+We choose $M_{pre}$ to be the Heuristic Mining net i) and $M_{post}$ to be the Inductive Mining net iii):\\
+\includegraphics[width=0.5\columnwidth]{Question_2/img/ProM_b_PRE_i.png}
+\includegraphics[width=0.5\columnwidth]{Question_2/img/ProM_b_inductive_POST_iii.png}\\
 
 \subsection*{(c)}
 \begin{enumerate}
@@ -66,5 +92,19 @@ The first similarity observed between the three most frequent trace variants of 
 
 
 \subsection*{(d)}
+\textbf{1.} In $M_{pre}$ tickets are inserted first (optional) and then the seriousness is assigned at least once. After that the ticket is taken in charge and set on 1 of 5 possible paths before the ticket is resolved:
+\begin{itemize}
+\item an intervention is scheduled
+\item upgrade is required
+\item ticket is put on wait
+\item an SW anomaly is created and potentially resolved
+\end{itemize} 
+After being resolved the ticket is either immediatly closed or set to INVALID, then RESOLVED and then VERIFIED before being closed.\\
+\textbf{2.} In $M_{post}$ tickets are also optionally inserted first. After that the seriousness is assigned. Before the ticket is taken in charge an upgrade can be required, and before an upgrade is required it is possible an SW anomaly is created and potentially fixed.
+After the ticket has been taken in charge it might be set on wait before it is resolved and closed.
+\textbf{3.} Both models start with the option 'Insert ticket', however in $M_{post}$ the activity 'Assign seriousness' can only be done once.\\
+With $M_{post}$ the activity 'Take in charge ticket' can be preceeded by the activities 'Create SW anomaly', 'Resolve SW anomaly' and 'Require upgrade'. For $M_{pre}$ these activities can only succeed 'Take in charge Ticket'.\\
+Both models end with the activities 'Resolve ticket' and 'Closed', however with $M_{pre}$ it is possible to perform the activities INVALID, RESOLVED, VERIFIED in between.
+
 
 \end{document}
