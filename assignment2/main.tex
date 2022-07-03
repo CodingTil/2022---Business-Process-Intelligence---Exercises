@@ -1,12 +1,13 @@
 \documentclass[12pt]{article}
 
+\usepackage{verbatim}
+\usepackage{listings}
+
 \usepackage[a4paper,margin=2cm]{geometry}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
-
-\usepackage{listings}
 
 \usepackage{booktabs} % For tables
 \usepackage[table,xcdraw]{xcolor} % For tables
@@ -37,9 +38,6 @@
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,
-    breaklines=true,
     captionpos=b,
     keepspaces=true,
     numbers=left,
@@ -47,7 +45,9 @@
     showspaces=false,
     showstringspaces=false,
     showtabs=false,
-    tabsize=2
+    tabsize=2,
+    columns=flexible,
+    breaklines=true
 }
 
 \lstset{style=mystyle}
@@ -83,5 +83,9 @@
 
 \section*{Question 6}
 \subfile{Question_6/question_6.tex}
+
+\section*{Appendix}
+Question 4b) Decision Tree description:
+\lstinputlisting{Question_4/other/decision-tree-description.txt}
 
 \end{document}
