@@ -3,9 +3,9 @@
 
 \begin{document}
 \subsection*{(a)}
-Import log-flat.xes to ProM.
+Import \textit{log-flat.xes} to ProM.
 Click the eye symbol to view resource. \\
-\includegraphics[width=0.8\textwidth]{img/ProM_a_overview.png}\\
+%\includegraphics[width=0.8\textwidth]{img/ProM_a_overview.png}\\
 This results in the following view:\\
 \includegraphics[width=0.8\textwidth]{img/ProM_a_overview_2.png}\\
 From it we can read
@@ -19,10 +19,11 @@ To gain more information on the activities we click the summary tab in the left 
 From (3) we get a table of occurence frequencies for each activity. From (4) we get a table of occurence frequencies for each start activity. From (5) we get a table of occurence frequencies for each end activity.\\
 To determine the number of unique trace variants we click on 'Select visualization' and select 'Explore Event Log'\\
 Under this view all trace variants are listed and some further information is given. From this we learn that there are 226 unique variants in the event log.\\
-\includegraphics[width=0.5\columnwidth]{img/ProM_a_setting.png}\includegraphics[width=0.5\columnwidth]{img/ProM_a_traces.png}\\
+%\includegraphics[width=0.5\columnwidth]{img/ProM_a_setting.png}
+\includegraphics[width=0.5\columnwidth]{img/ProM_a_traces.png}\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-98\% of tickets taken in charge are resolved ($\frac{4983}{5060}$)
+98\% of tickets taken in charge are also resolved ($\frac{4983}{5060}$).
 The variants seem to be quite diverse (\~1:20 ratio of cases to variants, although distributed very unevenly). \\
 From (4) we also observe that a quite high number of cases start with "illegal" activities (so not 'Assign seriousness' or 'Insert ticket'). It strikes out, that people managed in 74 cases to start their tickets with the "illegal" activity 'Take in charge ticket', while in comparison only 118 cases begin with the activity 'Insert ticket'.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -30,13 +31,14 @@ From (4) we also observe that a quite high number of cases start with "illegal" 
 
 \subsection*{(b)}
 From the introduction we learned that every trace has to start with 'Insert ticket' or 'Assign seriousness' and ends with 'Closed'. Therefore every trace that does not begin/end with these events must have started/ended outside of our observed time period, making it incomplete.\\
-To filter out incomplete traces we go on the 'Actions' tab, select 'Filter Log using Simple Heuristics' and press 'Start'. In the first dialogue we just click 'Next'. In the next dialogue window we select 'Insert ticket' as our only start event and click 'Next'. \\
-\includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_traces_start.png}\\
+To filter out incomplete traces we go on the 'Actions' tab, select 'Filter Log using Simple Heuristics' and press 'Start'. In the first dialogue we just click 'Next'. In the next dialogue window we select 'Insert ticket' and 'Assign seriousness' as start events and click 'Next'.
+%\includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_traces_start.png}\\
 For the end events we only select 'Closed' and click 'Next'. \\
-\includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_traces_end.png}\\
+%\includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_traces_end.png}\\
 Since we do not want to filter out any other events we select 100\% of events in Event Filter and click 'Finish'. We now get the following log:\\
-\includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_traces_events.png}
-\includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_log.png}\\
+%\includegraphics[width=0.5\columnwidth]{img/ProM_b_filter_traces_events.png}
+\includegraphics[width=0.4\columnwidth]{img/ProM_b_filter_log.png}\\
+
 
 \subsection*{(c)}
 1. As in (a) we inspect the overview of \textit{log-complete} to find 114 cases, 655 events and 7 activities. Also just like in (a) we select the visualization 'Explore Event Log' to find out there are 20 unique trace variants.\\
