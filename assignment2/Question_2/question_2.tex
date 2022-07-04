@@ -21,7 +21,7 @@ For the event log post (including) 01.10.2012 we get 12 unique activities across
 \item Set 'Options \& Thresholds' to: (info about resulting precision and fitness included)\\
 \begin{table}[h!]
 \begin{tabular}{l|llll}
-           & i) (\textit{log-pre-complete}) & ii) (\textit{log-pre-complete}) & iii) (\textit{log-post-complete}) & iv) (\textit{log-post-complete})\\
+           & i) (\textit{pre-complete}) & ii) (\textit{pre-complete}) & iii) (\textit{post-complete}) & iv) (\textit{post-complete})\\
            \hline
 Frequency  & 0.1 & 0   & 0.1  & 0   \\
 Dependency & 0.9 & 0.9 & 0.9  & 0.9 \\
@@ -42,24 +42,20 @@ As we can see all these models exceed our fitness threshold of 90\% and contain 
 \textbf{2.} ---\\
 \textbf{3.} We apply the following workflow both for \textit{log-pre-complete} and \textit{log-post-complete}:
 \begin{enumerate}
-\item [--------------------------]
-\item Set 'Options \& Thresholds' to\\
+\item Use plugin 'Mine Petri net with Inductive Miner' with Variant set to 'Inductive Miner - infrequent (IMf)' and the following settings for the noise threshold: (info about resulting precision and fitness included)
 \begin{table}[h!]
 \begin{tabular}{l|llll}
-           & i) (\textit{log-pre-complete}) & ii) (\textit{log-pre-complete}) & iii) (\textit{log-post-complete}) & iv) (\textit{log-post-complete})\\
+           & i) (\textit{pre-complete}) & ii) (\textit{pre-complete}) & iii) (\textit{post-complete}) & iv) (\textit{post-complete})\\
            \hline
- &  &  &   &  \\
- &  &  &   &  \\
- &  &  &   &  \\
- &  &  &   &  \\
+Noise threshold & 0.2 & 0 & 0.2 & 0 \\
 \hline
 Precision & 89,4\% & 70,5\% & 88,7\% & 35,1\% \\
 Fitness   & 94,5\% & 100\%  & 94,2\% & 100\%  \\
 \end{tabular}
 \end{table}
-\item [-------------------------]
+\item Next we use the corresponding log together with its created Petri net as input for the 'Multi-perspective Process Explorer' plugin and select 'Show Precision Mode' as MPE Mode.
 \end{enumerate}
-This results in the models that can be found in the appendix (Precision and Fitness are underlined)\\
+This results in the models that can be found in the appendix.\\
 As we can see all these models exceed our fitness threshold of 90\% and contain all activities occuring in their respective logs (\textit{log-pre-complete} doesn't contain the activity DUPLICATE and \textit{log-post.complete} doesn't contain the activities INVALID and RESOLVED).\\
 \\ \ \\
 We choose $M_{pre}$ to be the Heuristic Mining net i) and $M_{post}$ to be the Inductive Mining net iii):\\
