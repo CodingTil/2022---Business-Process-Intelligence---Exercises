@@ -4,9 +4,23 @@
 \begin{document}
 \subsection*{(a)}
 \includegraphics[width=\columnwidth]{img/Celonis_a_Visualization.png}\\
-For the left Pie Chart we used \verb|"event_table_csv"."RESOURCE"| as the Dimension and \\
-\verb|COUNT("event_table_csv"."ACTIVITY")| as the KPI.\\
-For the right Pie Chart we used \verb|"event_table_csv"."ACTIVITY"| as the Dimension and \verb|COUNT("event_table_csv"."RESOURCE")| as the KPI.
+For the top row of pie charts we used \verb|"event_table_csv"."RESOURCE"| as our Dimension, for the bottom row \verb|"event_table_csv"."ACTIVITY"|. As KPIs, we used the following formulas for the given Activities and Resources for top and bottom pie charts, respectively:
+\begin{lstlisting}
+COUNT(
+  CASE
+  WHEN "event_table_csv"."ACTIVITY" = '[ACTIVITY]' THEN "event_table_csv"."ACTIVITY"
+  ELSE NULL
+  END
+)
+\end{lstlisting}
+\begin{lstlisting}
+COUNT(
+  CASE
+  WHEN "event_table_csv"."RESOURCE" = '[RESOURCE]' THEN "event_table_csv"."RESOURCE"
+  ELSE NULL
+  END
+)
+\end{lstlisting}
 
 
 \subsection*{(b)}
