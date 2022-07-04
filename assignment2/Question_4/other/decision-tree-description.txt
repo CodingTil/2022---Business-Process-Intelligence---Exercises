@@ -1,31 +1,42 @@
 MEMBERSHIP = Gold
 |   TICKET TYPE = Incident
-|   |   NUMBER OF ACTIVE CASES AT START > 0.500: False/No-Wait {False/No-Wait=266, True/Wait=27}
-|   |   NUMBER OF ACTIVE CASES AT START <= 0.500
-|   |   |   PRIORITY = High: False/No-Wait {False/No-Wait=2, True/Wait=0}
-|   |   |   PRIORITY = Normal: True/Wait {False/No-Wait=1, True/Wait=2}
+|   |   NUMBER OF ACTIVE CASES AT START > 95.500: False/No-Wait {False/No-Wait=246, True/Wait=21}
+|   |   NUMBER OF ACTIVE CASES AT START <= 95.500
+|   |   |   NUMBER OF ACTIVE CASES AT START > 51.500
+|   |   |   |   RESOURCE OF STARTING ACTIVITY = Res3: True/Wait {False/No-Wait=3, True/Wait=5}
+|   |   |   |   RESOURCE OF STARTING ACTIVITY = Res4: False/No-Wait {False/No-Wait=4, True/Wait=2}
+|   |   |   |   RESOURCE OF STARTING ACTIVITY = Res8: False/No-Wait {False/No-Wait=8, True/Wait=1}
+|   |   |   NUMBER OF ACTIVE CASES AT START <= 51.500: False/No-Wait {False/No-Wait=8, True/Wait=0}
 |   TICKET TYPE = Question: False/No-Wait {False/No-Wait=1391, True/Wait=41}
-|   TICKET TYPE = Task: False/No-Wait {False/No-Wait=262, True/Wait=89}
-MEMBERSHIP = Premium
-|   TICKET TYPE = Incident
-|   |   PRIORITY = High
-|   |   |   RESOURCE OF STARTING ACTIVITY = Res3: False/No-Wait {False/No-Wait=19, True/Wait=11}
-|   |   |   RESOURCE OF STARTING ACTIVITY = Res4: False/No-Wait {False/No-Wait=22, True/Wait=4}
-|   |   |   RESOURCE OF STARTING ACTIVITY = Res8
-|   |   |   |   NUMBER OF ACTIVE CASES AT START > 6.500
-|   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 16: False/No-Wait {False/No-Wait=11, True/Wait=1}
-|   |   |   |   |   NUMBER OF ACTIVE CASES AT START <= 16
-|   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 13.500: True/Wait {False/No-Wait=1, True/Wait=2}
-|   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START <= 13.500: False/No-Wait {False/No-Wait=8, True/Wait=3}
-|   |   |   |   NUMBER OF ACTIVE CASES AT START <= 6.500: False/No-Wait {False/No-Wait=3, True/Wait=0}
-|   |   PRIORITY = Normal: False/No-Wait {False/No-Wait=147, True/Wait=75}
-|   |   PRIORITY = Urgent: False/No-Wait {False/No-Wait=13, True/Wait=1}
-|   TICKET TYPE = Question: False/No-Wait {False/No-Wait=401, True/Wait=110}
 |   TICKET TYPE = Task
-|   |   NUMBER OF ACTIVE CASES AT START > 0.500
-|   |   |   NUMBER OF ACTIVE CASES AT START > 1.500: True/Wait {False/No-Wait=777, True/Wait=861}
-|   |   |   NUMBER OF ACTIVE CASES AT START <= 1.500: False/No-Wait {False/No-Wait=4, True/Wait=2}
-|   |   NUMBER OF ACTIVE CASES AT START <= 0.500
-|   |   |   RESOURCE OF STARTING ACTIVITY = Res3: True/Wait {False/No-Wait=2, True/Wait=4}
-|   |   |   RESOURCE OF STARTING ACTIVITY = Res4: False/No-Wait {False/No-Wait=9, True/Wait=1}
-|   |   |   RESOURCE OF STARTING ACTIVITY = Res8: False/No-Wait {False/No-Wait=5, True/Wait=2}
+|   |   NUMBER OF ACTIVE CASES AT START > 241: False/No-Wait {False/No-Wait=25, True/Wait=0}
+|   |   NUMBER OF ACTIVE CASES AT START <= 241
+|   |   |   NUMBER OF ACTIVE CASES AT START > 41.500
+|   |   |   |   NUMBER OF ACTIVE CASES AT START > 45.500
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 239: True/Wait {False/No-Wait=1, True/Wait=2}
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START <= 239: False/No-Wait {False/No-Wait=227, True/Wait=83}
+|   |   |   |   NUMBER OF ACTIVE CASES AT START <= 45.500
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 42.500: True/Wait {False/No-Wait=0, True/Wait=3}
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START <= 42.500: False/No-Wait {False/No-Wait=2, True/Wait=1}
+|   |   |   NUMBER OF ACTIVE CASES AT START <= 41.500: False/No-Wait {False/No-Wait=7, True/Wait=0}
+MEMBERSHIP = Premium
+|   NUMBER OF ACTIVE CASES AT START > 28
+|   |   NUMBER OF ACTIVE CASES AT START > 30.500
+|   |   |   NUMBER OF ACTIVE CASES AT START > 280.500: False/No-Wait {False/No-Wait=3, True/Wait=0}
+|   |   |   NUMBER OF ACTIVE CASES AT START <= 280.500
+|   |   |   |   TICKET TYPE = Incident
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 260: True/Wait {False/No-Wait=1, True/Wait=3}
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START <= 260: False/No-Wait {False/No-Wait=219, True/Wait=94}
+|   |   |   |   TICKET TYPE = Question
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 259.500: False/No-Wait {False/No-Wait=10, True/Wait=0}
+|   |   |   |   |   NUMBER OF ACTIVE CASES AT START <= 259.500
+|   |   |   |   |   |   PRIORITY = High: False/No-Wait {False/No-Wait=123, True/Wait=33}
+|   |   |   |   |   |   PRIORITY = Normal: False/No-Wait {False/No-Wait=225, True/Wait=74}
+|   |   |   |   |   |   PRIORITY = Urgent
+|   |   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 148: False/No-Wait {False/No-Wait=32, True/Wait=0}
+|   |   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START <= 148
+|   |   |   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START > 135: True/Wait {False/No-Wait=0, True/Wait=2}
+|   |   |   |   |   |   |   |   NUMBER OF ACTIVE CASES AT START <= 135: False/No-Wait {False/No-Wait=9, True/Wait=0}
+|   |   |   |   TICKET TYPE = Task: True/Wait {False/No-Wait=783, True/Wait=869}
+|   |   NUMBER OF ACTIVE CASES AT START <= 30.500: True/Wait {False/No-Wait=0, True/Wait=2}
+|   NUMBER OF ACTIVE CASES AT START <= 28: False/No-Wait {False/No-Wait=17, True/Wait=0}

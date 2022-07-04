@@ -1,0 +1,1 @@
+{"rule":"LARGE_NUMBER_OF","sentence":"^\\QHowever, this happens mostly at a large number of already running cases.\\E$"}
