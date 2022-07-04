@@ -39,7 +39,27 @@ All tasks connected: True
 This results in the models that can be found in the appendix (Precision and Fitness are underlined)\\
 As we can see all these models exceed our fitness threshold of 90\% and contain all activities occuring in their respective logs (\textit{log-pre-complete} doesn't contain the activity DUPLICATE and \textit{log-post.complete} doesn't contain the activities INVALID and RESOLVED).\\
 \\ \ \\
-\textbf{2.} ---\\
+\textbf{2.} We apply the following workflow both for \textit{log-pre-complete} and \textit{log-post-complete}:
+\begin{enumerate}
+\item Use 'Mine Transition System' and select the activities \texttt{Assign seriousness, Closed, Insert ticket, resolve ticket, Take in charge ticket, Wait} everytime we have to select activities.
+For ii) and iv) uncheck the 'Remove self loops' option:
+\begin{table}[h!]
+\begin{tabular}{l|llll}
+           & i) (\textit{pre-complete}) & ii) (\textit{pre-complete}) & iii) (\textit{post-complete}) & iv) (\textit{post-complete})\\
+           \hline
+Remove self loops & False & True & False & True \\
+\hline
+Precision & 77,2\% & 95,4\% & 69,1\% & 89,9\% \\
+Fitness   & 99,8\% & 98\%   & 98,1\% & 96,4\% \\
+\end{tabular}
+\end{table}
+\item Use 'Convert to Petri Net using Regions' on the mined Transition system
+\item Run 'Multi-perspective Process Explorer' on the resulting Petri Net together with the respective log.
+\item Choose 'Show Precision Mode' as MPE Mode (in case we are asked to select a final marking we select [[Closed],[Closed]])
+\end{enumerate}
+This results in the models that can be found in the appendix\\
+As we can see all these models exceed our fitness threshold of 90\% and contain all activities occuring in their respective logs (\textit{log-pre-complete} doesn't contain the activity DUPLICATE and \textit{log-post.complete} doesn't contain the activities INVALID and RESOLVED).
+\\ \ \\
 \textbf{3.} We apply the following workflow both for \textit{log-pre-complete} and \textit{log-post-complete}:
 \begin{enumerate}
 \item Use plugin 'Mine Petri net with Inductive Miner' with Variant set to 'Inductive Miner - infrequent (IMf)' and the following settings for the noise threshold: (info about resulting precision and fitness included)
